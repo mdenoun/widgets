@@ -21,31 +21,27 @@
     },
     {
       "left": "5%",
-      "right": "88%",
+      "right": "93%",
       "color": "violet"
     },
     {
-      "left": "12%",
-      "right": "82%",
+      "left": "7%",
+      "right": "90%",
       "color": "orange"
     },
     {
-      "left": "18%",
-      "right": "77%",
+      "left": "10%",
+      "right": "87%",
       "color": "yellow"
     },
     {
-      "left": "23%",
-      "right": "73%",
+      "left": "13%",
+      "right": "85%",
       "color": "blue"
     }
   ],
-  "duration-left": "30%",
-  "duration-text": "176ms",
-  "duration": {
-    "left": "30%",
-    "text": "-176ms"
-  }
+  "duration-left": "17%",
+  "duration-text": "176ms"
 }, {
   "id": "586a4e5731b8f13d8dc689c6",
   "index": 1,
