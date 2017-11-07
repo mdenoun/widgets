@@ -1,0 +1,124 @@
+@import '../../variables';
+:host {
+  virtual-scroll {
+    background: #ebf1f5;
+    width: 1700px;
+
+  }
+  virtual-scroll table {
+    display: table;
+  }
+  virtual-scroll td {
+    padding: .5rem;
+  }
+}
+.table-list-container {
+  box-sizing: border-box;
+}
+.table-list-status {
+  border: none;
+  padding: 10px 5px 10px 5px;
+}
+.widget {
+  box-sizing: border-box;
+}
+.data-grid {
+  padding-left: 5px;
+  border: none;
+  position: relative;
+  line-height: 120%;
+  overflow-x: auto;
+}
+.data-grid th {
+  background-color: rgba(239, 239, 239, 0.39);
+  border-bottom: 1px solid rgb(205,205,205);
+  border-left: 1px solid rgb(205,205,205);
+  font-weight: normal;
+  text-align: center;
+}
+.data-grid td {
+  text-align: center;
+}
+.data-grid td.text-left {
+  text-align: left;
+}
+.data-grid td input{
+  margin-right: 5px;
+}
+.row-pair {
+  background-color: rgba(237, 238, 236, 0.85);
+}
+.row-impair {
+  background-color: rgb(255,255,255);
+}
+.data-grid .row-pair:hover, .data-grid .row-impair:hover {
+  background-color: rgba(169, 231, 255, 0.34);
+}
+.icon {
+  font-size: 12px;
+  color: grey;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.header-container {
+  height: 31px;
+  position: absolute;
+}
+.header {
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 100%;
+  width: 100%;
+}
+.data-container {
+  top: 31px;
+  bottom: 0;
+  transform: translateZ(0);
+  position: relative;
+  left: 0;
+  right:0;
+}
+.data {
+  background: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  border-top: 0 none transparent;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 100%;
+  width: 100%;
+}
+.data-grid-filler-row.revealed {
+  display: table-row;
+}
+td:first-child.data-grid-filler {
+  border-left: none;
+}
+.data-grid-resizer {
+  position: absolute;
+  cursor: col-resize;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  z-index:500;
+}
+.data-grid-time {
+  position: absolute;
+  border-left: dashed 1px rgb(205,205,205);
+  padding-left: 5px;
+  text-align: left;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index:500;
+}
+.corner {
+  display: none;
+  width:14px;
+  border-left: 0 none transparent;
+}

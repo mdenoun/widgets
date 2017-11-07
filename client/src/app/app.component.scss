@@ -1,0 +1,42 @@
+@import '../variables';
+.vbox {
+  display: flex;
+  flex-direction: column !important;
+  position: relative;
+}
+.widget {
+  flex: auto;
+  position: relative;
+  contain: layout style;
+}
+.root-view {
+  background-color: white;
+  overflow: hidden;
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  right:0;
+  left:0;
+}
+.flex-auto {
+  flex: auto;
+}
+.flex-none {
+  flex: none;
+}
+.banner {
+  position: relative;
+}
+h1 {
+  color: $dark-text;
+}
+@import '../variables';
+virtual-scroll,
+[virtualScroll] {
+  overflow: hidden;
+  overflow-y: auto;
+  border: 1px solid $border-color;
+  height: 75vh;
+  display: block;
+}
+

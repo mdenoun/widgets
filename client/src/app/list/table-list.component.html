@@ -1,0 +1,135 @@
+<div class="table-list-container vbox flex-auto">
+  <div class="table-list-status flex-none">
+    Showing <span class="badge">{{indices?.start + 1}}</span>
+    - <span class="badge">{{indices?.end}}</span>
+    of <span class="badge">{{filteredList?.length}}</span>
+    <span>({{scrollItems?.length}} nodes)</span>
+  </div>
+  <div class="widget  vbox">
+    <div #datagrid class="data-grid vbox flex-auto">
+      <div class="header-container flex-none">
+        <table class="header">
+          <colgroup>
+            <col style="width:130px;">
+            <col style="width:130px;">
+            <col style="width:460px;">
+            <col style="width:180px;">
+            <col style="width:95px;">
+            <col style="width:95px;">
+            <col style="width:75px;">
+            <col style="width:75px;">
+            <col style="width:460px;">
+            <col class="corner">
+          </colgroup>
+          <tbody>
+          <tr>
+            <th class="name-column sortable">
+              <div>Status</div>
+            </th>
+            <th class="name-column sortable">
+              <div>Method</div>
+            </th>
+            <th class="name-column sortable">
+              <div>File</div>
+            </th>
+            <th class="name-column sortable">
+              <div>Domain</div>
+            </th>
+            <th class="name-column sortable">
+              <div>Cause</div>
+            </th>
+            <th class="name-column sortable">
+              <div>Type</div>
+            </th>
+            <th class="name-column sortable">
+              <div>Transfer</div>
+            </th>
+            <th class="name-column sortable">
+              <div>Size</div>
+            </th>
+            <th class="name-column sortable">
+              <div></div>
+            </th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-container flex-auto">
+        <virtual-scroll
+          [items]="filteredList"
+          [childHeight]="43"
+          (update)="scrollItems = $event"
+          (change)="indices = $event">
+          <table class="data">
+            <colgroup>
+              <col style="width:130px;">
+              <col style="width:130px;">
+              <col style="width:460px;">
+              <col style="width:180px;">
+              <col style="width:95px;">
+              <col style="width:95px;">
+              <col style="width:75px;">
+              <col style="width:75px;">
+              <col style="width:460px;">
+              <col class="corner">
+            </colgroup>
+            <tbody>
+            <tr *ngFor="let item of scrollItems, let i = index;"
+                [ngClass]="{'row-pair':i%2===0, 'row-impair':i%2===1}">
+              <td>
+                <i class="icon fa fa-circle" aria-hidden="true"
+                   [ngStyle]="{'color':(item['status-color'] === '')?'grey':item['status-color']}">
+                </i>
+                <span *ngIf="item.status">{{item.status}}</span>
+                <span *ngIf="!item.status" style="visibility: hidden">200</span>
+              </td>
+              <td>{{item.method}}</td>
+              <td class="text-left">
+                <input type="checkbox" class="icon" [value]="item['file-state']">
+                <span>{{item.file}}</span></td>
+              <td class="text-left">
+                <i class="icon">
+                  <i [class]="item['domain-icon']"></i>
+                </i>
+                <span>{{item.domain}}</span></td>
+              <td>
+                <i class="icon">
+                  <i [class]="item['cause-icon']"></i>
+                </i>
+                <span>{{item.cause}}</span>
+              </td>
+              <td>{{item.type}}</td>
+              <td>{{item.transferred}}</td>
+              <td>{{item.size}}</td>
+              <td>
+                <div style="position: relative; height: 8px;">
+                  <div *ngFor="let seg of item['segments']"
+                       [ngStyle]="{ 'display':'inline','height': '8px','position': 'absolute','background-color': seg['color'], 'left': seg['left'], 'right': seg['right'] }">
+                  </div>
+                  <div [ngStyle]="{ 'display':'inline','height': '8px','position': 'absolute','left': item['duration-left'] }">
+                    {{item['duration-text']}}
+                  </div>
+                </div>
+              </td>
+              <td class="corner"></td>
+            </tr>
+            </tbody>
+          </table>
+        </virtual-scroll>
+      </div>
+      <div class="data-grid-resizer" style="left: 130px;"></div>
+      <div class="data-grid-resizer" style="left: 260px;"></div>
+      <div class="data-grid-resizer" style="left: 720px;"></div>
+      <div class="data-grid-resizer" style="left: 900px;"></div>
+      <div class="data-grid-resizer" style="left: 995px;"></div>
+      <div class="data-grid-resizer" style="left: 1090px;"></div>
+      <div class="data-grid-resizer" style="left: 1165px;"></div>
+      <div class="data-grid-resizer" style="left: 1240px;">
+        <div class="data-grid-time bar-0" style="cursor: col-resize; left: 0px;">0ms</div>
+        <div class="data-grid-time bar-320" style="cursor: col-resize; left: 130px;">320ms</div>
+        <div class="data-grid-time bar-640" style="cursor: col-resize; left: 260px;">640ms</div>
+        <div class="data-grid-time bar-960" style="cursor: col-resize; left: 390px;">960ms</div>
+      </div>
+    </div>
+  </div>
+</div>
